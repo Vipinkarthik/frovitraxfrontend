@@ -1,0 +1,553 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+
+  .animate-fade-in-slow {
+    animation: fadeIn 1.2s ease-in-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.9s ease-in-out forwards;
+  }
+
+  /* Slide In Left */
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.9s ease-in-out forwards;
+  }
+
+  /* Slide In Right */
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.9s ease-in-out forwards;
+  }
+
+  /* Bounce X (Horizontal Bounce) */
+  @keyframes bounceX {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(6px); }
+  }
+
+  .animate-bounce-x {
+    animation: bounceX 1.2s infinite ease-in-out;
+  }
+
+  /* Clip Diagonal Image Effect */
+  .clip-diagonal {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .perspective {
+  perspective: 1200px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+@keyframes fade-in-left {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-left {
+  animation: fade-in-left 1s ease forwards;
+}
+
+@keyframes fade-in-right {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.animate-fade-in-right {
+  animation: fade-in-right 1s ease forwards;
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease forwards;
+}
+}
+
+/* Global dark theme overrides (applies when <html> has class 'dark')
+   Uses a refined palette to ensure good contrast across patterns and elements.
+   These rules intentionally use !important to override Tailwind utilities used
+   across procurement and vendor pages without touching component markup. */
+html.dark {
+  --bg: #0b1220;        /* page background */
+  --panel: #0f1724;     /* panels / larger cards */
+  --card: #0b1220;      /* small cards */
+  --input-bg: #07101a;  /* inputs */
+  --muted: #9fb4c8;     /* secondary text */
+  --text: #e6eef8;      /* primary text */
+  --accent: #10b981;    /* primary accent */
+  --danger: #ff6b6b;    /* danger */
+  --border: rgba(255,255,255,0.06);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Background mapping */
+html.dark .bg-white, html.dark .bg-gray-50 { background-color: var(--panel) !important; }
+html.dark .bg-black { background-color: var(--card) !important; }
+html.dark .bg-emerald-50 { background-color: rgba(16,185,129,0.04) !important; }
+
+/* Text color mapping */
+html.dark .text-white, html.dark .text-gray-900, html.dark .text-gray-800 { color: var(--text) !important; }
+html.dark .text-gray-600, html.dark .text-gray-700, html.dark .text-gray-500 { color: var(--muted) !important; }
+html.dark .text-emerald-700, html.dark .text-emerald-600 { color: var(--accent) !important; }
+
+/* Borders and strokes */
+html.dark .border-gray-200, html.dark .border { border-color: var(--border) !important; }
+html.dark hr { border-color: rgba(255,255,255,0.04) !important; }
+
+/* Inputs and form controls */
+html.dark input, html.dark textarea, html.dark select, html.dark .input {
+  background-color: var(--input-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+/* Buttons and accents */
+html.dark .bg-emerald-600 { background-color: #059669 !important; }
+html.dark .hover\:bg-emerald-700:hover { background-color: #047a52 !important; }
+html.dark .btn, html.dark button { background-color: var(--panel) !important; color: var(--text) !important; }
+
+/* Shadows */
+html.dark .shadow-xl, html.dark .shadow-md, html.dark .shadow-sm { box-shadow: 0 6px 20px rgba(2,6,23,0.6) !important; }
+
+/* Cards and panels tweaks */
+html.dark .rounded-2xl, html.dark .rounded-xl { background-clip: padding-box; }
+html.dark .card { background-color: var(--card) !important; }
+
+/* Alerts */
+html.dark .bg-red-200 { background-color: rgba(255,50,50,0.06) !important; }
+html.dark .text-red-800 { color: #ffb4b4 !important; }
+
+/* Ensure charts and SVGs using stroke/currentColor pick up the theme */
+html.dark svg, html.dark .icon { color: var(--text) !important; }
+
+/* Extended dark-mode mappings for many Tailwind utilities and common patterns */
+html.dark {
+  /* refined palette */
+  --bg: #08101a;        /* page background (very dark blue-gray) */
+  --panel: #0f1720;     /* larger panels */
+  --card: #0b1620;      /* cards */
+  --muted: #9fb4c8;     /* secondary text */
+  --text: #e6eef8;      /* primary text */
+  --accent: #29d08a;    /* accent (green) */
+  --accent-2: #60a5fa;  /* secondary accent (blue) */
+  --danger: #ff6b6b;    /* danger */
+  --border: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.02);
+}
+
+/* Generic backgrounds (covers whites, grays, blacks) */
+html.dark .bg-white, html.dark .bg-gray-50, html.dark .bg-gray-100 { background-color: var(--panel) !important; }
+html.dark .bg-gray-200, html.dark .bg-gray-300 { background-color: #0c2028 !important; }
+html.dark .bg-gray-400, html.dark .bg-gray-500 { background-color: #0a1a23 !important; }
+html.dark .bg-gray-600, html.dark .bg-gray-700, html.dark .bg-black { background-color: var(--card) !important; }
+
+/* Specific brand/accent backgrounds */
+html.dark .bg-emerald-50, html.dark .bg-emerald-100 { background-color: rgba(16,185,129,0.04) !important; }
+html.dark .bg-emerald-600, html.dark .bg-emerald-500 { background-color: #10b981 !important; }
+html.dark .bg-blue-50, html.dark .bg-blue-100 { background-color: rgba(96,165,250,0.04) !important; }
+html.dark .bg-blue-500, html.dark .bg-blue-600 { background-color: #3b82f6 !important; }
+html.dark .bg-red-50, html.dark .bg-red-100 { background-color: rgba(255,99,99,0.04) !important; }
+html.dark .bg-yellow-50, html.dark .bg-yellow-100 { background-color: rgba(250,204,21,0.04) !important; }
+
+/* Text color mapping (broad) */
+html.dark .text-white, html.dark .text-gray-900, html.dark .text-gray-800 { color: var(--text) !important; }
+html.dark .text-gray-700, html.dark .text-gray-600, html.dark .text-gray-500 { color: var(--muted) !important; }
+html.dark .text-emerald-700, html.dark .text-emerald-600 { color: var(--accent) !important; }
+html.dark .text-blue-600, html.dark .text-blue-500 { color: var(--accent-2) !important; }
+html.dark a, html.dark a:hover { color: var(--accent-2) !important; }
+
+/* Borders and dividers */
+html.dark .border, html.dark .border-gray-200, html.dark .border-gray-300 { border-color: var(--border) !important; }
+html.dark .ring-1, html.dark .ring { box-shadow: 0 0 0 1px var(--border) !important; }
+
+/* Form controls */
+html.dark input, html.dark textarea, html.dark select, html.dark .input {
+  background-color: var(--input-bg, #07101a) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+html.dark ::placeholder { color: rgba(230,238,248,0.45) !important; }
+html.dark input:focus, html.dark textarea:focus, html.dark select:focus { box-shadow: 0 0 0 3px rgba(16,185,129,0.08) !important; }
+
+/* Buttons */
+html.dark .btn-primary, html.dark .bg-emerald-600 { background-color: #059669 !important; color: var(--text) !important; }
+html.dark .btn-primary:hover, html.dark .hover\:bg-emerald-700:hover { background-color: #047a52 !important; }
+html.dark .btn-secondary, html.dark .bg-white { background-color: var(--panel) !important; color: var(--text) !important; }
+
+/* Cards/panels/shadows */
+html.dark .card, html.dark .bg-white, html.dark .bg-gray-50 { background-color: var(--panel) !important; color: var(--text) !important; }
+html.dark .shadow, html.dark .shadow-sm, html.dark .shadow-md, html.dark .shadow-lg { box-shadow: 0 8px 30px rgba(2,6,23,0.6) !important; }
+
+/* Tables */
+html.dark table { color: var(--text) !important; }
+html.dark table thead th { color: var(--muted) !important; border-bottom: 1px solid rgba(255,255,255,0.04) !important; }
+html.dark table tbody tr:nth-child(odd) { background-color: rgba(255,255,255,0.01) !important; }
+
+/* Badges and labels */
+html.dark .badge { background-color: rgba(255,255,255,0.03) !important; color: var(--text) !important; }
+html.dark .badge-success { background-color: rgba(16,185,129,0.12) !important; color: var(--accent) !important; }
+
+/* Alerts */
+html.dark .alert { background-color: rgba(255,255,255,0.02) !important; color: var(--text) !important; }
+html.dark .alert-danger { background-color: rgba(255,99,99,0.06) !important; color: #ffb4b4 !important; }
+
+/* Charts and SVGs adopt currentColor */
+html.dark svg, html.dark .svg-fill-current { fill: currentColor !important; }
+html.dark svg path, html.dark svg circle { stroke: currentColor !important; }
+
+/* Utility: ensure gradient backgrounds dim in dark mode */
+html.dark .bg-gradient-to-br, html.dark .bg-gradient-to-tr, html.dark .from-emerald-400 { opacity: 0.85 !important; }
+
+/* Broad gradient stop neutralization: catch Tailwind 'from-...', 'via-...' and 'to-...' classes (including -50 light variants) */
+html.dark [class*="from-"], html.dark [class*="via-"], html.dark [class*="to-"] {
+  --tw-gradient-from: var(--panel) !important;
+  --tw-gradient-to: var(--panel) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+  background-image: none !important;
+  background-color: var(--panel) !important;
+}
+
+/* Catch bg-gradient utilities specifically (bg-gradient-to-*) and dim them */
+html.dark [class*="bg-gradient-to-"], html.dark [class*="bg-gradient"] {
+  background-image: none !important;
+  background-color: var(--panel) !important;
+}
+
+/* Final fallback: ensure text on dark backgrounds uses readable color */
+html.dark .text-on-dark { color: var(--text) !important; }
+
+/* Gradient stop remapping: convert light gradient stops to dark themed stops */
+html.dark .from-white,
+html.dark .via-white,
+html.dark .to-white,
+html.dark .from-gray-50,
+html.dark .from-gray-100,
+html.dark .via-gray-50,
+html.dark .via-gray-100,
+html.dark .to-gray-50,
+html.dark .to-gray-100 {
+  --tw-gradient-from: var(--panel) !important;
+  --tw-gradient-to: var(--panel) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+/* Also handle arbitrary gradient stops that include white hex */
+html.dark [class*="from-#"], html.dark [class*="via-#"], html.dark [class*="to-#"] {
+  --tw-gradient-from: var(--panel) !important;
+  --tw-gradient-to: var(--panel) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+/* ---------------- Hover / Focus / Active remaps ---------------- */
+/* Prevent white appearing on hover/focus/active states under dark theme. */
+/* Common Tailwind pseudo-class classnames use escaped colons in generated CSS
+   so we target both the escaped selector forms and attribute-class forms */
+
+/* hover background/text that force white */
+html.dark .hover\:bg-white:hover,
+html.dark .hover\:bg-white\/80:hover,
+html.dark [class*="hover:bg-#"]:hover {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+html.dark .hover\:text-white:hover,
+html.dark [class*="hover:text-"]:hover {
+  color: var(--text) !important;
+}
+
+/* focus and active variants */
+html.dark .focus\:bg-white:focus,
+html.dark .active\:bg-white:active,
+html.dark [class*="focus:bg-#"]:focus,
+html.dark [class*="active:bg-#"]:active {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+html.dark .focus\:text-white:focus,
+html.dark .active\:text-white:active,
+html.dark [class*="focus:text-"]:focus,
+html.dark [class*="active:text-"]:active {
+  color: var(--text) !important;
+}
+
+/* group-hover (e.g. parent with 'group' class) */
+html.dark .group:hover .group-hover\:bg-white,
+html.dark .group:hover [class*="group-hover:bg-#"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+html.dark .group:hover .group-hover\:text-white,
+html.dark .group:hover [class*="group-hover:text-"] {
+  color: var(--text) !important;
+}
+
+/* Buttons that swap to white text on hover (e.g. hover:text-white) */
+html.dark button:hover, html.dark a:hover, html.dark .btn:hover {
+  /* ensure they don't flip to hard white text or bg */
+  color: var(--text) !important;
+  background-color: inherit !important;
+}
+
+/* Very broad safety: any :hover/:focus/:active state that sets background to white via inline style */
+html.dark [style*=":hover"]:hover,
+html.dark [onmouseover]:hover {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+
+/* Enforce no pure white usage under dark theme: remap 'white' utilities */
+html.dark .bg-white,
+html.dark .bg-white\:hover,
+html.dark .bg-white\:active,
+html.dark .bg-white\:focus {
+  background-color: var(--panel) !important;
+}
+
+html.dark .text-white,
+html.dark .text-white\:hover,
+html.dark .text-white\:active {
+  color: var(--text) !important;
+}
+
+html.dark .border-white,
+html.dark .ring-white {
+  border-color: var(--border) !important;
+  box-shadow: 0 0 0 1px var(--border) !important;
+}
+
+html.dark .fill-white { fill: currentColor !important; }
+html.dark .stroke-white { stroke: currentColor !important; }
+
+/* gradient stops that may reference white */
+html.dark .from-white, html.dark .via-white, html.dark .to-white {
+  --tw-gradient-from: transparent !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+/* placeholders */
+html.dark ::placeholder, html.dark .placeholder-white {
+  color: rgba(230,238,248,0.45) !important;
+}
+
+/* ensure any hard-coded white backgrounds are dimmed */
+html.dark [style*="background: white"], html.dark [style*="background:#fff"], html.dark [style*="background:#ffffff"] {
+  background-color: var(--panel) !important;
+}
+
+
+/* Catch Tailwind arbitrary color utilities (e.g. bg-[#FFF5F5], bg-[rgba(255,255,255,0.8)])
+   and any other class containing a hex or rgb literal for background. */
+html.dark [class*="bg-#"],
+html.dark [class*="bg-[#"],
+html.dark [class*="bg-[rgba"],
+html.dark [class*="bg-[rgb"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Cover Tailwind modifiers like "bg-white/80" and any class that contains 'bg-white' */
+html.dark [class*="bg-white"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Remap text-white to use theme text color */
+html.dark [class*="text-white"] {
+  color: var(--text) !important;
+}
+
+/* Inline style hex fallbacks for common light backgrounds */
+html.dark [style*="#FFF5F5"], html.dark [style*="#fff5f5"], html.dark [style*="#ffffff"], html.dark [style*="#FFF"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Broad safeguard: any class that includes '#fff' or '#ffffff' (arbitrary class names) */
+html.dark [class*="#fff"], html.dark [class*="#ffffff"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Additional brand hover remaps to avoid pure white text/bg on interaction */
+html.dark .hover\:bg-emerald-700:hover,
+html.dark .hover\:bg-blue-700:hover,
+html.dark .hover\:bg-indigo-700:hover,
+html.dark .hover\:bg-green-700:hover,
+html.dark .hover\:bg-red-700:hover,
+html.dark .hover\:bg-gray-500:hover {
+  /* keep the hover background but ensure text uses themed color, not pure white */
+  background-color: rgba(100,120,110,0.12) !important;
+  color: var(--text) !important;
+}
+
+/* Specific buttons that use 'hover:text-white' ensure they keep themed text */
+html.dark .hover\:text-white:hover, html.dark [class*="hover:text-white"]:hover {
+  color: var(--text) !important;
+}
+
+/* More specific: when classes combine hover:bg-* with text-white, neutralize the text change */
+html.dark [class*="hover:bg-"][class*="text-white"]:hover {
+  color: var(--text) !important;
+}
+
+/* Final safety: any element with inline style setting background to white on hover will be dimmed */
+html.dark [onmouseover]:hover, html.dark [onmouseenter]:hover {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* ---------------- Global interaction safety ---------------- */
+/* Ensure no element flips to pure white text when hovered/focused/active */
+html.dark *:hover, html.dark *:focus, html.dark *:active {
+  color: var(--text) !important;
+}
+
+/* Ensure children inside hovered elements inherit the safe color */
+html.dark *:hover * { color: inherit !important; }
+
+
+
+
+/* ---------------- Additional safety nets ---------------- */
+/* Pseudo-elements often carry decorative white backgrounds or borders; force them to be theme-safe */
+html.dark *::before, html.dark *::after {
+  background-color: transparent !important;
+  color: inherit !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Selection colors */
+html.dark ::selection { background: rgba(230,238,248,0.08) !important; color: var(--text) !important; }
+html.dark ::-moz-selection { background: rgba(230,238,248,0.08) !important; color: var(--text) !important; }
+
+/* Remove text shadows that make text disappear on dark backgrounds */
+html.dark * { text-shadow: none !important; }
+
+/* Caret and outline colors for focusable controls */
+html.dark input, html.dark textarea, html.dark [contenteditable="true"] {
+  caret-color: var(--text) !important;
+}
+html.dark *:focus { outline-color: rgba(230,238,248,0.12) !important; }
+
+/* Scrollbars (WebKit + Firefox) */
+html.dark ::-webkit-scrollbar { width: 12px; height: 12px; }
+html.dark ::-webkit-scrollbar-track { background: var(--panel) !important; }
+html.dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06) !important; border-radius: 999px !important; }
+html.dark { scrollbar-color: rgba(255,255,255,0.06) var(--panel) !important; }
+
+/* Handle autofill in WebKit browsers (avoid bright yellow/white fields) */
+html.dark input:-webkit-autofill, html.dark textarea:-webkit-autofill, html.dark select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+  box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+}
+
+/* Progress / meter elements */
+html.dark progress, html.dark meter { background-color: transparent !important; color: var(--accent) !important; }
+
+/* Inline styles that set linear-gradients or background-images referencing white — neutralize them */
+html.dark [style*="linear-gradient"][style*="white"],
+html.dark [style*="linear-gradient"][style*="#fff"],
+html.dark [style*="background-image"][style*="white"],
+html.dark [style*="background-image"][style*="#fff"] {
+  background-image: none !important;
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Elements with inline box-shadow that embed white glows: override to themed shadow */
+html.dark [style*="box-shadow"][style*="rgba(255,255,255"],
+html.dark [style*="box-shadow"][style*="#fff"] {
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6) !important;
+}
+
+/* SVGs that use absolute white over attributes */
+html.dark [fill="#ffffff"], html.dark [fill="#fff"], html.dark [stroke="#ffffff"], html.dark [stroke="#fff"] {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Tooltips, popovers, dropdown backdrops, and modal overlays often use white backgrounds */
+html.dark .tooltip, html.dark .popover, html.dark .dropdown-menu, html.dark .modal-backdrop, html.dark .toast {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6) !important;
+}
+
+/* Inline style fallbacks catching common white hex literals in style attributes */
+html.dark [style*="#ffffff"], html.dark [style*="#fff"], html.dark [style*="#FFF5F5"], html.dark [style*="#fff5f5"] {
+  background-color: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Very defensive: if any element still tries to set a white background via background or background-color inline style, dim it */
+/* (Removed empty ruleset) */
+
+
+
+
+
+
