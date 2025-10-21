@@ -23,7 +23,7 @@ import ProcurementReport from './pages/procurement/Procurementreport';
 import VendorReport from './pages/vendors/Vendorreport';
 import ProcurementSettings from './pages/procurement/ProcurementSettings';
 import QAReport from "./pages/qareport/QAReport";
-import ThemeProvider from './components/theme/Themeprovider';
+import ThemeProvider from './components/theme/ThemeProvider';
 import Notification from './components/notifications/NotificationBell'
 import Notifications from './components/notifications/NotificationBell2'
 
