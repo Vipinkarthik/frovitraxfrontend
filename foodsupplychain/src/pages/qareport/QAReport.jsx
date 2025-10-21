@@ -30,13 +30,19 @@ export default function QAReport() {
       const formData = new FormData();
       formData.append("file", file);
 
-      // ✅ Capitalize first letter to match model’s expected format
+      // ✅ Capitalize first letter to match model's expected format
       const formattedProductType =
         productType.charAt(0).toUpperCase() + productType.slice(1).toLowerCase();
 
       formData.append("product_type", formattedProductType);
 
-      const res = await axios.post(`${apiBaseUrl}/api/analyze-csv`, formData);
+      console.log('Sending request to:', `${apiBaseUrl}/api/analyze-csv`);
+      const res = await axios.post(`${apiBaseUrl}/api/analyze-csv`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log('Response:', res.data);
       setAiResult(res.data);
     } catch (err) {
       console.error(err);

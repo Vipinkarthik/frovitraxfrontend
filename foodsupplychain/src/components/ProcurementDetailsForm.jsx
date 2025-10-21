@@ -46,7 +46,7 @@ export default function ProcurementDetailsForm() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.post('http://localhost:5000/api/pm/details', form, {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/pm/details`, form, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,

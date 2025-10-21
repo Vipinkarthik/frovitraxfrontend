@@ -75,7 +75,7 @@ export default function VendorDetailsForm() {
         years: Number(form.years),
         avgCapacity: Number(form.avgCapacity)
       };
-      await axios.post('http://localhost:5000/api/vendor/details', payload, {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/vendor/details`, payload, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
