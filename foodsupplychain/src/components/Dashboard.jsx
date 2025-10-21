@@ -7,8 +7,7 @@ import {
   FaChartLine, FaRobot, FaHandshake 
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import foodImage from '../assets/foodindustry.jpg';
-import Video1 from '../assets/factoryvideo1.mp4';
+
 import sellImage from '../assets/vendorselling.jpg';
 import vendors from '../assets/vendors.webp';
 import transport from '../assets/transport.jpg';
@@ -17,7 +16,6 @@ import warehouse from '../assets/warehouse.jpg';
 import PlaceOrder from '../assets/PlaceOrder.webp';
 import SLA from '../assets/sla.jpg';
 import Frovitrax from '../assets/Frovitrax Logo2.png';
-import Landingpage1 from '../assets/Landingpage1.mp4';
 import img1 from '../assets/home1.jpg';
 import img2 from '../assets/home2.jpg';
 import img3 from '../assets/home3.jpg';
